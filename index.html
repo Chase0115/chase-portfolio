@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg" href="./img/favicon.svg" />
+    <title>Chase Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="#home"><img class='logoImg'src="./img/namelogo.png"alt="logo"></a>
+      </div>
+      <div class="navbar-menu">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          |
+          <li><a href="#about">About</a></li>
+          |
+          <li><a href="#project">Projects</a></li>
+          |
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar-menu social">
+        <ul>
+          <li><a><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a><i class="fa-brands fa-square-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="header">
+      <div class="profileFrame">
+        <img class="profile" src="img/profile2.png" alt="profile">
+      </div>
+      <div class="introduce">
+        <h1 class="greeting line-1">Hi, I'm Chase!  
+        </h1>
+        <h2>
+          I'm a frontend developer,<br/> specialized in  development of web applications using <br/> React, Next.js, typescript and more
+        </h2>
+      </div>
+    </div>
+    </section>
+
+    <section id="about">
+      <p class="heading">About me</p>
+      <p class="aboutText">
+        As a front-end developer with a passion for clean and efficient code, I
+        have spent countless hours honing my skills in HTML, CSS, and
+        JavaScript. My goal is to create visually stunning and user-friendly
+        websites that leave a lasting impression on those who use them.
+      </p>
+      <p class="aboutText">
+        I have experience working with popular front-end frameworks such as
+        React.js and styled-components, as well as back-end technologies such as
+        Node.js. In addition to my technical skills, I pride myself on my
+        ability to communicate effectively with clients and team members,
+        ensuring that projects are completed on time and to the highest
+        standard.
+      </p>
+      <p class="aboutText">
+        When I'm not coding, you can find me hiking in the mountains or
+        experimenting with new recipes in the kitchen. I am also an active
+        member of the open-source community, contributing to a number of
+        projects on GitHub.
+      </p>
+      <button>Learn More</button>
+    </section>
+
+    <section id="project">
+      <h2>Recent Projects</h2>
+      <ul class="projectList">
+      </ul>
+      <button>View All Projects</button>
+    </section>
+
+    <section id="contact">
+      <p class="heading">Contact Me</p>
+      <form class="contactForm" action="/submit-form" method="POST">
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Message me"
+          required
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <footer id="footer">
+      <p>&copy; DevChase Project. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<script src="index.js"></script>

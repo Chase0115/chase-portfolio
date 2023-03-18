@@ -1,0 +1,259 @@
+:root {
+  --main-color: #001f3f;
+  --sub-color: #e4dccf;
+  --gray-color: #f2f2f2;
+  --white-color: #ffffff;
+  --blue-color: #4b7bec;
+  --peach-color: #ffb6c1;
+  --background-color: rgb(2, 0, 36);
+  --background-gradient: linear-gradient(
+    153deg,
+    rgba(0, 99, 255, 1) 0%,
+    rgba(121, 9, 9, 1) 50%,
+    rgba(2, 0, 36, 1) 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--sub-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: var(--blue-color);
+  color: var(--gray-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+section {
+  padding: 3rem;
+}
+
+section h2 {
+  text-align: center;
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--gray-color);
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 4rem;
+  background: var(--background-color);
+  background: var(--background-gradient);
+  color: var(--gray-color);
+  font-size: 1.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+.navbar-logo {
+  text-align: left;
+  padding-left: 20px;
+}
+.logoImg {
+  width: 4rem;
+}
+.navbar-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu li {
+  margin: 0 10px;
+}
+
+.social {
+  font-size: 2rem;
+}
+
+#header {
+  height: 60vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: var(--gray-color);
+}
+
+.profileFrame {
+  flex: 1;
+  margin-top: 5rem;
+  background-size: cover;
+  position: relative;
+  max-width: 300px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.profile {
+  width: 100%;
+}
+
+.introduce {
+  flex: 2;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: coloumn;
+  justify-content: center;
+}
+
+.greeting {
+  position: absolute;
+  top: 13rem;
+  width: 24em;
+  font-size: 2.5rem;
+  color: var(--main-color);
+  text-align: center;
+  letter-spacing: 0.15em;
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+.line-1 {
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 9em;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.introduce h2 {
+  position: absolute;
+  top: 15rem;
+  color: var(--main-color);
+}
+
+#about {
+  background-color: var(--main-color);
+  color: var(--gray-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.aboutText {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.projectSection {
+  list-style-type: none;
+}
+
+#contact {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction:column;
+  align-item: center;
+  background-color: var(--gray-color);
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.contactForm input[type="text"],
+.contactForm input[type="email"],
+.contactForm textarea {
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+}
+
+.contactForm input[type="text"]:focus,
+.contactForm input[type="email"]:focus,
+.contactForm textarea:focus {
+  outline: none;
+  background-color: var(--gray-color);
+}
+
+.contactForm textarea {
+  margin-top: 2rem;
+  height: 150px;
+  border: 1px solid var(--main-color);
+  resize: none;
+}
+
+.contactformbutton: hover {
+  background-color: #555;
+}
+
+#footer {
+  background: var(--background-color);
+  background: var(--background-gradient);
+  color: var(--gray-color);
+  padding: 1rem;
+  text-align: center;
+}
