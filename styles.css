@@ -12,6 +12,9 @@
     rgba(121, 9, 9, 1) 50%,
     rgba(2, 0, 36, 1) 100%
   );
+  --font-large: 2rem;
+  --font-medium: 1.4rem;
+  --font-small: 1rem;
 }
 
 html {
@@ -43,10 +46,12 @@ button {
 
 section {
   padding: 3rem;
+  min-width: 930px;
 }
 
-section h2 {
+section h1 {
   text-align: center;
+  font-size: 2.5rem;
 }
 
 .heading {
@@ -81,6 +86,7 @@ section h2 {
 .navbar-logo {
   text-align: left;
   padding-left: 20px;
+  margin: auto;
 }
 .logoImg {
   width: 4rem;
@@ -98,17 +104,20 @@ section h2 {
 }
 
 .social {
-  font-size: 2rem;
+  font-size: var(--font-large);
 }
 
 #header {
   height: 60vh;
+  min-height: 480px;
+  max-width: 930px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   color: var(--gray-color);
+  margin: auto;
 }
 
 .profileFrame {
@@ -138,7 +147,7 @@ section h2 {
   position: absolute;
   top: 13rem;
   width: 24em;
-  font-size: 2.5rem;
+  font-size: var(--font-large);
   color: var(--main-color);
   text-align: center;
   letter-spacing: 0.15em;
@@ -149,7 +158,8 @@ section h2 {
 .line-1 {
   margin: 0 auto;
   border-right: 2px solid rgba(255, 255, 255, 0.75);
-  font-size: 180%;
+  font-size: var(--font-large);
+  color: var(--blue-color);
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -197,8 +207,117 @@ section h2 {
   max-width: 700px;
 }
 
-.projectSection {
+#project {
+  max-width: 930px;
+  margin: auto;
+  padding: 1rem;
+  margin: 2rem 0;
+  
+}
+
+.projectsWrapper {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  max-width: 930px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.projectList,
+.projectCarousel,
+.projectDesc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--gray-color);
+  margin: 1rem;
+  height: 40rem;
+}
+
+.projectList {
   list-style-type: none;
+}
+
+.projectItem {
+  text-align: center;
+  vertical-align: bottom;
+  box-sizing: block;
+  width: 6rem;
+  height: 4rem;
+  margin: auto;
+  font-size: var(--font-medium);
+  border-bottom: 1px solid var(--gray-color);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.projectItem.active {
+  background-color: var(--peach-color);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.projectCarousel {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+  height: 100%; 
+  max-width: 330px;
+}
+
+.carousel__inner {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel__inner img {
+  width: 330px;
+  border-radius: 10px;
+}
+
+.carousel__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-large);
+  cursor: pointer;
+}
+
+.carousel__button--prev {
+  left: -8%;
+  color: white;
+}
+
+.carousel__button--next {
+  right: -8%;
+  color: white;
+}
+
+.projectDetail {
+  flex: 2;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectDetail .desc {
+  font-size: var(--font-medium);
+}
+
+.projectDetail .tools {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: start;
+}
+
+.projectDetail .links {
+  margin-top: 2rem;
 }
 
 #contact {
@@ -212,7 +331,7 @@ section h2 {
 
 .contactForm {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-item: center;
   background-color: var(--gray-color);
   width: 100%;

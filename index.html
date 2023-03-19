@@ -33,6 +33,7 @@
     </nav>
 
     <section id="header">
+      
       <div class="profileFrame">
         <img class="profile" src="img/profile2.png" alt="profile">
       </div>
@@ -40,7 +41,7 @@
         <h1 class="greeting line-1">Hi, I'm Chase!  
         </h1>
         <h2>
-          I'm a frontend developer,<br/> specialized in  development of web applications using <br/> React, Next.js, typescript and more
+          I'm a frontend developer,<br/> specialized in  development of <br/>web applications using <br/> React, Next.js, typescript and more
         </h2>
       </div>
     </div>
@@ -71,11 +72,45 @@
       <button>Learn More</button>
     </section>
 
-    <section id="project">
-      <h2>Recent Projects</h2>
+    <section id="projects">
+      <h1>My Projects</h1>
+    <div class="projectsWrapper">
       <ul class="projectList">
+        <li class="projectItem active">Coin Tracker</li>
+        <li class="projectItem">Emotion Diary</li>
+        <li class="projectItem">Fake Twitter</li>
+        <li class="projectItem">Project</li>
       </ul>
-      <button>View All Projects</button>
+      <div class="projectCarousel">
+        <div class="carousel__inner">
+          <img src="img/coinTracker1.png" alt="Slide 1">
+          <img src="img/coinTracker2.png" alt="Slide 2">
+          <img src="img/coinTracker3.png" alt="Slide 3">
+      </div>
+        <button class="carousel__button carousel__button--prev" aria-label="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel__button carousel__button--next" aria-label="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="projectDetail">
+        <div class="desc">This project for checking the coin's price and chart. you can change from dark mode to bright mode.
+        </div>
+        <div class="tools"><b>Tools:</b> 
+          <ul>
+          <li>TypeScript</li>
+          <li>React.js</li>
+          <li>Fetch API</li>
+          <li>Apex Charts</li>
+        </ul>
+        <div class="links">
+        <p><i class="fa-solid fa-link"></i>link: <br><a href="https://chase-web-react-project.web.app/">https://chase-web-react-project.web.app/</a> </p>
+        <p><i class="fa-solid fa-link"></i>code: <br> <a href="https://github.com/Chase0115/EmotionDiary">https://github.com/Chase0115/EmotionDiary</a></p>
+      </div>
+      </div>  
+      </div>
+    </div>
     </section>
 
     <section id="contact">
