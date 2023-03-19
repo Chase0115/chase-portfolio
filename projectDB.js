@@ -28,14 +28,15 @@ const projectJSON = [
   {
     name: "Fake Twitter",
     images: [
-      "img/emotionDiary1.png",
-      "img/emotionDiary2.png",
-      "img/emotionDiary3.png",
+      "img/fakeTwitter1.png",
+      "img/fakeTwitter2.png",
+      "img/fakeTwitter3.png",
     ],
     link: "https://chase-web-react-project.web.app/",
     code: "https://github.com/Chase0115/EmotionDiary",
-    description: "Write a daily diary with 5 emotion options",
-    tools: ["React.js", "context API", "localStorage", "fetch API"],
+    description:
+      "Simulate social app (twitter) with functions of post, comment, following, follower, signup, login, and etc",
+    tools: ["React.js", "Redux", "Redux-saga", "node.js", "ant design"],
   },
   {
     name: "Project",
