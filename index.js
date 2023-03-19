@@ -1,3 +1,7 @@
+import projectJSON from "./projectDB.js";
+
+// Navbar section
+
 const navbar = document.querySelector(".navbar");
 let prevScrollPos = window.pageYOffset;
 
@@ -11,63 +15,90 @@ window.addEventListener("scroll", () => {
   prevScrollPos = currentScrollPos;
 });
 
-const projectJSON = [
-  {
-    name: "Coin tracker",
-    images: [
-      "img/coinTracker1.png",
-      "img/coinTracker2.png",
-      "img/coinTracker3.png",
-      "img/coinTracker4.png",
-    ],
-    link: "https://chase0115.github.io/coin-tracker/",
-    code: "https://github.com/Chase0115/coin-tracker",
-    description:
-      "This project for checking the coin's price and chart. you can change from dark mode to bright mode.",
-    tools: ["TypeScript", "React.js", "Fetch API", "Apex Charts"],
-  },
-  {
-    name: "Emotion diary",
-    images: [
-      "img/emotionDiary1.png",
-      "img/emotionDiary2.png",
-      "img/emotionDiary3.png",
-    ],
-    link: "https://chase-web-react-project.web.app/",
-    code: "https://github.com/Chase0115/EmotionDiary",
-    description: "Write a daily diary with 5 emotion options",
-    tools: ["React.js", "context API", "localStorage", "fetch API"],
-  },
-];
+// Project section
 
-const carousel = document.querySelector('.projectCarousel');
-const carouselInner = document.querySelector('.carousel__inner');
-const slides = carouselInner.querySelectorAll('img');
-const prevButton = carousel.querySelector('.carousel__button--prev');
-const nextButton = carousel.querySelector('.carousel__button--next');
-let currentIndex = 0;
-let slideCount = slides.length;
-let slideWidth = "330";
+const carousel = document.querySelector(".projectCarousel");
+const carouselInner = document.querySelector(".carousel__inner");
 
-function showSlide(index) {
-  currentIndex = index;
-  carouselInner.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-}
+const projectList = document.querySelector(".projectList");
 
-prevButton.addEventListener('click', () => {
-  if (currentIndex === 0) {
-    showSlide(slideCount - 1);
-  } else {
-    showSlide(currentIndex - 1);
+const projectNameList = projectJSON.map((item) => item.name);
+
+const projectItems = projectList.querySelectorAll("li");
+
+const setImages = (imgArr) => {
+  for (let i = 0; i < imgArr.length; i++) {
+    const newImg = document.createElement("img");
+    newImg.setAttribute("src", imgArr[i]);
+    newImg.setAttribute("alt", `Slide ${i}`);
+    carouselInner.appendChild(newImg);
+    const slides = carouselInner.querySelectorAll("img");
+    const prevButton = carousel.querySelector(".carousel__button--prev");
+    const nextButton = carousel.querySelector(".carousel__button--next");
+    let currentIndex = 0;
+    let slideCount = slides.length;
+    let slideWidth = "330";
+
+    const showSlide = (index) => {
+      currentIndex = index;
+      carouselInner.style.transform = `translateX(-${
+        slideWidth * currentIndex
+      }px)`;
+    };
+
+    prevButton.addEventListener("click", () => {
+      if (currentIndex === 0) {
+        showSlide(slideCount - 1);
+      } else {
+        showSlide(currentIndex - 1);
+      }
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (currentIndex === slideCount - 1) {
+        showSlide(0);
+      } else {
+        showSlide(currentIndex + 1);
+      }
+    });
+
+    showSlide(currentIndex);
   }
+};
+
+const projectDesc = document.querySelector(".desc");
+
+const projectTools = document.querySelector(".tools");
+
+const projectLinks = document.querySelector(".links");
+
+const setDesc = (project) => {
+  projectDesc.textContent = project.description;
+  for (let i = 0; i < project.tools.length; i++) {
+    const newItem = document.createElement("li");
+    newItem.textContent = project.tools[i];
+    projectTools.appendChild(newItem);
+  }
+  projectLinks.innerHTML = `
+  <p><i class="fa-solid fa-link"></i>link: <br><a href="${project.link}">${project.link}</a> </p>
+        <p><i class="fa-solid fa-link"></i>code: <br> <a href="${project.code}">${project.code}</a></p>
+  `;
+};
+
+projectItems.forEach((li) => {
+  li.addEventListener("click", (e) => {
+    projectItems.forEach((li) => {
+      li.classList.remove("active");
+    });
+    li.classList.add("active");
+    const projectIndex = projectNameList.findIndex(
+      (item) => item === e.target.innerHTML
+    );
+    const newImages = projectJSON[projectIndex].images;
+    carouselInner.innerHTML = null;
+    projectTools.innerHTML = null;
+    setImages(newImages);
+    setDesc(projectJSON[projectIndex]);
+  });
 });
 
-nextButton.addEventListener('click', () => {
-  if (currentIndex === slideCount - 1) {
-    showSlide(0);
-  } else {
-    showSlide(currentIndex + 1);
-  }
-});
-
-showSlide(currentIndex);

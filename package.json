@@ -1,0 +1,16 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Chase Portfolio ",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "module": "commonjs",
+  "author": "DevChase",
+  "license": "ISC",
+  "dependencies": {
+    "@emailjs/browser": "^3.10.0"
+  }
+}

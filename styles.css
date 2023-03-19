@@ -26,6 +26,7 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--sub-color);
+  user-select: none;
 }
 
 a {
@@ -46,7 +47,7 @@ button {
 
 section {
   padding: 3rem;
-  min-width: 930px;
+  min-width: 960px;
 }
 
 section h1 {
@@ -110,7 +111,7 @@ section h1 {
 #header {
   height: 60vh;
   min-height: 480px;
-  max-width: 930px;
+  max-width: 960px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -208,7 +209,6 @@ section h1 {
 }
 
 #project {
-  max-width: 930px;
   margin: auto;
   padding: 1rem;
   margin: 2rem 0;
@@ -216,11 +216,12 @@ section h1 {
 }
 
 .projectsWrapper {
+  block-size: inherit;
   display: flex;
   justify-content: center;
   background-color: var(--white-color);
   border-radius: 10px;
-  max-width: 930px;
+  max-width: 960px;
   margin: auto;
   padding: 2rem 0;
 }
@@ -231,32 +232,39 @@ section h1 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--gray-color);
   margin: 1rem;
   height: 40rem;
 }
 
 .projectList {
   list-style-type: none;
+  margin: 0;
+  border-right: 1px solid var(--gray-color);
 }
 
 .projectItem {
   text-align: center;
-  vertical-align: bottom;
   box-sizing: block;
   width: 6rem;
   height: 4rem;
-  margin: auto;
+  margin: 40px;
   font-size: var(--font-medium);
   border-bottom: 1px solid var(--gray-color);
   padding: 1rem;
   cursor: pointer;
 }
 
+.projectItem:hover {
+  background-color: var(--peach-color);
+  border-radius: 10px;
+  color: var(--white-color);
+}
+
 .projectItem.active {
   background-color: var(--peach-color);
   font-weight: bold;
   border-radius: 10px;
+  color: var(--white-color);
 }
 
 .projectCarousel {
@@ -264,17 +272,19 @@ section h1 {
   position: relative;
   overflow: hidden;
   height: 100%; 
+  min-width: 330px;
   max-width: 330px;
+  margin-right: 1rem;
 }
 
 .carousel__inner {
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;  
 }
 
 .carousel__inner img {
   width: 330px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .carousel__button {
@@ -300,6 +310,7 @@ section h1 {
 .projectDetail {
   flex: 2;
   border: 0;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -310,10 +321,14 @@ section h1 {
   font-size: var(--font-medium);
 }
 
-.projectDetail .tools {
+.projectDetail .toolsWrapper {
   margin-top: 2rem;
   width: 100%;
   text-align: start;
+}
+
+.tools {
+  list-style-type: "\1f449"
 }
 
 .projectDetail .links {
@@ -329,7 +344,7 @@ section h1 {
   background-color: var(--main-color);
 }
 
-.contactForm {
+#contactForm {
   display: flex;
   flex-direction: column;
   align-item: center;
@@ -340,9 +355,9 @@ section h1 {
   border-radius: 10px;
 }
 
-.contactForm input[type="text"],
-.contactForm input[type="email"],
-.contactForm textarea {
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
   width: 90%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -351,14 +366,14 @@ section h1 {
   border-bottom: 1px solid var(--main-color);
 }
 
-.contactForm input[type="text"]:focus,
-.contactForm input[type="email"]:focus,
-.contactForm textarea:focus {
+#contactForm input[type="text"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm textarea:focus {
   outline: none;
   background-color: var(--gray-color);
 }
 
-.contactForm textarea {
+#contactForm textarea {
   margin-top: 2rem;
   height: 150px;
   border: 1px solid var(--main-color);

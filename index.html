@@ -7,6 +7,27 @@
     <title>Chase Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init('hb_ElieOUBHFSOe6v');
+      })();
+    </script>
+    <script type="text/javascript">
+    
+      window.onload = () => {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_n5mql66', 'template_qciastu', this)
+                .then(function() {
+                    alert('SUCCESS!');
+                }, function(error) {
+                    alert('FAILED...', error);
+                });
+        });
+    }
+    
+    </script>
   </head>
   <body>
     <nav class="navbar">
@@ -16,11 +37,11 @@
       <div class="navbar-menu">
         <ul>
           <li><a href="#home">Home</a></li>
-          |
+          
           <li><a href="#about">About</a></li>
-          |
+          
           <li><a href="#project">Projects</a></li>
-          |
+          
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -76,17 +97,14 @@
       <h1>My Projects</h1>
     <div class="projectsWrapper">
       <ul class="projectList">
-        <li class="projectItem active">Coin Tracker</li>
-        <li class="projectItem">Emotion Diary</li>
+        <li class="projectItem" project-name="Coin tracker">Coin tracker</li>
+        <li class="projectItem">Emotion diary</li>
         <li class="projectItem">Fake Twitter</li>
         <li class="projectItem">Project</li>
       </ul>
       <div class="projectCarousel">
         <div class="carousel__inner">
-          <img src="img/coinTracker1.png" alt="Slide 1">
-          <img src="img/coinTracker2.png" alt="Slide 2">
-          <img src="img/coinTracker3.png" alt="Slide 3">
-      </div>
+        </div>
         <button class="carousel__button carousel__button--prev" aria-label="Previous Slide">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
@@ -95,32 +113,26 @@
         </button>
       </div>
       <div class="projectDetail">
-        <div class="desc">This project for checking the coin's price and chart. you can change from dark mode to bright mode.
+        <div class="desc">
         </div>
-        <div class="tools"><b>Tools:</b> 
-          <ul>
-          <li>TypeScript</li>
-          <li>React.js</li>
-          <li>Fetch API</li>
-          <li>Apex Charts</li>
-        </ul>
+        <div class="toolsWrapper">
+          <ul class="tools">
+          </ul>
         <div class="links">
-        <p><i class="fa-solid fa-link"></i>link: <br><a href="https://chase-web-react-project.web.app/">https://chase-web-react-project.web.app/</a> </p>
-        <p><i class="fa-solid fa-link"></i>code: <br> <a href="https://github.com/Chase0115/EmotionDiary">https://github.com/Chase0115/EmotionDiary</a></p>
+        </div>
       </div>
-      </div>  
       </div>
     </div>
     </section>
 
     <section id="contact">
       <p class="heading">Contact Me</p>
-      <form class="contactForm" action="/submit-form" method="POST">
-        <input type="text" id="name" name="name" placeholder="Name" required />
+      <form id="contactForm" >
+        <input type="text" id="from_name" name="from_name" placeholder="Name" required />
         <input
           type="email"
-          id="email"
-          name="email"
+          id = "reply_to"
+          name="reply_to"
           placeholder="Email"
           required
         />
@@ -128,10 +140,10 @@
           id="message"
           name="message"
           rows="5"
-          placeholder="Message me"
+          placeholder="Write here ..."
           required
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit" value="Send">Submit</button>
       </form>
     </section>
 
@@ -141,4 +153,5 @@
   </body>
 </html>
 
-<script src="index.js"></script>
+<script type="module" src="index.js"></script>
+
